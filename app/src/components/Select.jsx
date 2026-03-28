@@ -9,14 +9,14 @@ function Select(props) {
   };
   console.log(selected);
   return (
-    <div className="dropdown" style={{marginBottom: "20px"}}>
+    <div className="dropdown" >
       <button
         className="btn btn-secondary dropdown-toggle"
         type="button"
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        {selected.length > 0 ? selected : null}
+        🎨 {selected.length > 0 ? selected : null}
       </button>
       <ul className="dropdown-menu">
         {props.items.map((item, index) => (
