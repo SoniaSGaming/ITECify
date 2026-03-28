@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="mystyle.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-image: url('bamboo_bg.png');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      font-family: sans-serif;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: #ffeed1;
+      border: 6.7px solid #cc8c47;
+      border-radius: 20px;
+      padding: 30px;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    h1 {
+      font-size: clamp(24px, 4vw, 36px);
+      text-align: center;
+      margin-bottom: 16px;
+      white-space: nowrap;
+    }
+
+    .container p {
+      border: none;
+      background: none;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 0 20px 0;
+      text-indent: 0;
+      font-size: 16px;
+      padding: 0;
+      text-align: center;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    label {
+      text-align: left;
+      color: #402013;
+      margin-bottom: 4px;
+      font-size: 16px;
+      -webkit-text-stroke: 0;
+      text-decoration: none;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .cancelbtn {
+      background-color: #402013;
+    }
+
+    .signinbtn {
+      background-color: #e94d32;
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 20px;
+      }
+
+      .form-group {
+        width: 95%;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .buttons button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form action="action_page.php">
+    <div class="container">
+      <font>
+      <h1>Sign In</h1>
+      <p><font>Please fill in this form to sign in to your account.</font></p>
+
+      <div class="form-group">
+        <label for="email"><b>Username</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signinbtn">Sign In</button>
+      </div>
+      </font>
+    </div>
+  </form>
+</body>
+</html>
