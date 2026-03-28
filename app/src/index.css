@@ -2,3 +2,22 @@
   padding: 0;
   margin: 0;
  }
+
+ /* Cursor line */
+.yRemoteSelection {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+/* Cursor caret */
+.yRemoteSelectionHead {
+  border-left: 2px solid red;
+}
+
+/* Name label on hover */
+.yRemoteSelectionHead::after {
+  content: attr(data-user);
+  background: red;
+  color: white;
+  padding: 2px 6px;
+  font-size: 12px;
+}
