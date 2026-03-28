@@ -9,7 +9,7 @@ function Select(props) {
   };
   console.log(selected);
   return (
-    <div className="dropdown">
+    <div className="dropdown" style={{marginBottom: "20px"}}>
       <button
         className="btn btn-secondary dropdown-toggle"
         type="button"
