@@ -1,9 +1,20 @@
 services:
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/code
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - PISTON_URL=http://piston:2000/api/v2/execute
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    depends_on:
+      - piston
+
   piston:
     image: ghcr.io/engineer-man/piston
     container_name: piston_api
-    restart: always
-    # Piston needs these to create the 'sandboxes' for the code it runs
     privileged: true
     ports:
       - "2000:2000"
@@ -11,3 +22,10 @@ services:
       - ./piston_packages:/piston/packages
     tmpfs:
       - /tmp:exec
+    # This auto-installs languages inside the container on startup
+    entrypoint: 
+      - /bin/sh
+      - -c
+      - |
+        /piston/bin/piston pkg install python nodejs php gcc -y
+        /piston/bin/piston start

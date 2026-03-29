@@ -8,10 +8,9 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "backend": "uvicorn main:app --reload --app-dir ../ai --port 8000",
-    "docker-up": "docker compose -f ../docker-compose.yml up -d",
-    "install-piston-langs": "docker exec piston_api piston pkg install python nodejs gcc -y",
-    "start-all": "concurrently \"npm run backend\" \"npm run dev\""
+    "docker-up": "docker compose -f docker-compose.yml up --build -d",
+    "install-piston-langs": "docker exec piston_api /piston/packages/pkg-manager install python node gcc php -y",
+    "start-all": "concurrently \"npm run docker-up\" \"wait-on http://localhost:8000/docs && npm run dev\""
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
@@ -36,6 +35,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.4.0",
-    "vite": "^8.0.1"
+    "vite": "^8.0.1",
+    "wait-on": "^9.0.4"
   }
 }

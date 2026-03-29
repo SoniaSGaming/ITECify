@@ -228,7 +228,7 @@ function App() {
     const config = langMap[lang];
     if (!config)
       return { type: "error", content: `Language "${lang}" not supported` };
-    const res = await fetch("/piston/api/v2/execute", {
+    const res = await fetch("http://piston:2000/api/v2/execute", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
