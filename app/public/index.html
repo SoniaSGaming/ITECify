@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="mystyle.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-image: url('benvoliobg.png');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      font-family: 'Changa one',sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 60px;
+    }
+
+    h2 {
+      margin-bottom: 12px;
+    }
+
+    section {
+      margin-bottom: 32px;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    input[type="text"] {
+      padding: 8px 12px;
+      border: 1px solid #9a9dbe;
+      border-radius: 4px;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    input[type="submit"],
+    .btn {
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 500px) {
+      input[type="text"] {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <font>
+  <h1>Welcome to <img src="logo_itecify.png" width="200" height="100" style="float: centre; right: 30px;">! </h1> <br><br><br><br><br><br><br><br><br><br>
+
+  <section>
+    <h2>Join a project</h2>
+    <form action="">
+      <label for="codprj">Project ID:</label>
+      <input type="text" id="codprj" name="codprj" placeholder="Introdu ID-ul...">
+      <input type="submit" value="Join">
+    </form>
+  </section>
+
+  <section>
+    <h2>Create a project</h2>
+    <a href="createprj.html">
+      <button class="btn">Click here to create a new project!</button>
+    </a>
+    </font>
+  </section>
+</body>
+</html>

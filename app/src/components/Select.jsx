@@ -16,7 +16,7 @@ function Select(props) {
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        🎨 {selected.length > 0 ? selected : null}
+        {selected.length > 0 ? selected : props.heading}
       </button>
       <ul className="dropdown-menu">
         {props.items.map((item, index) => (
