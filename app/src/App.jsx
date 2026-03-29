@@ -5,9 +5,12 @@ import { WebrtcProvider } from "y-webrtc";
 import { MonacoBinding } from "y-monaco";
 import "@xterm/xterm/css/xterm.css";
 import Select from "./components/Select.jsx";
+import "bootstrap/dist/css/bootstrap.css"
+import "bootstrap/dist/js/bootstrap.bundle.js"
 import "./App.css";
 import TerminalComponent from "./components/Terminal.jsx";
 import AiChat from "./components/AiChat.jsx";
+
 
 const CHAT_WIDTH = 500;
 const GAP = 8;
@@ -259,10 +262,10 @@ function App() {
   return (
     <div className="screen">
       {/* Toolbar */}
-      <div style={{ display: "flex", gap: "8px", alignItems: "center", flexWrap: "wrap" }}>
-        <Select heading="Theme" items={themes} onSelect={handleThemeChange} />
+      <div style={{ display: "flex", gap: "8px", alignItems: "center", flexWrap: "wrap"}}>
+        <Select heading="Theme" items={themes} onSelect={handleThemeChange} style={{backgroundColor: "#e94d32", color: "#ffeed1",borderColor:"#e94d32;"}} />
 
-        <button onClick={handleRun} disabled={isRunning} className="btn btn-secondary dropdown">
+        <button onClick={handleRun} disabled={isRunning} className="btn btn-secondary dropdown" style={{backgroundColor: "#e94d32", color: "#ffeed1",borderColor:"#e94d32;"}}>
           {isRunning ? "Running..." : "▶ Run"}
         </button>
 
@@ -273,24 +276,24 @@ function App() {
             else { setShowBottomPanel(false); }
           }}
           className="btn btn-secondary"
-          style={{ opacity: showBottomPanel && bottomTab === "terminal" ? 1 : 0.6 }}
+          style={{ backgroundColor: "#e94d32", color: "#ffeed1",borderColor:"#e94d32;", opacity: showBottomPanel && bottomTab === "terminal" ? 1 : 0.6 }}
         >
           ⌨ Terminal
         </button>
 
-        <button onClick={handleSave} disabled={!openFilePath} className="btn btn-secondary">
+        <button onClick={handleSave} disabled={!openFilePath} className="btn btn-secondary" style={{backgroundColor: "#e94d32", color: "#ffeed1",borderColor:"#e94d32;", borderWidth: 1}} >
           💾 Save
         </button>
 
         <button
           onClick={() => setShowChat(p => !p)}
           className="btn btn-secondary"
-          style={{ opacity: showChat ? 1 : 0.6 }}
+          style={{ backgroundColor: "#e94d32", color: "#ffeed1",borderColor:"#e94d32;", borderWidth: 1, opacity: showChat ? 1 : 0.6 }}
         >
           {showChat ? "✕ AI Chat" : "◈ AI Chat"}
         </button>
       </div>
-
+      
       {/* Main layout */}
       <div style={{ display: "flex", gap: `${GAP}px`, alignItems: "flex-start", marginTop: "8px" }}>
 
@@ -327,13 +330,14 @@ function App() {
                 flexShrink: 0,
                 height: "32px",
               }}>
-                <button style={tabStyle(bottomTab === "terminal")} onClick={() => setBottomTab("terminal")}>
+                <button style={tabStyle(bottomTab === "terminal")} onClick={() => setBottomTab("terminal")} id="btn">
                   ⌨ TERMINAL
                 </button>
                 <button
                   style={tabStyle(bottomTab === "output")}
                   onClick={() => setBottomTab("output")}
                   disabled={!output}
+                  id="btn"
                 >
                   ▤ OUTPUT {output && <span style={{ fontSize: "9px", color: output?.type === "error" ? "#f44747" : "#4ec9b0" }}>●</span>}
                 </button>
@@ -351,7 +355,9 @@ function App() {
                     fontSize: "14px",
                     lineHeight: 1,
                     padding: "0 4px",
+                    color: "#e94d32",
                   }}
+                  id="btn"
                 >✕</button>
               </div>
 
@@ -413,20 +419,32 @@ function App() {
                     )}
                   </div>
                 )}
+                
               </div>
             </div>
           )}
         </div>
 
         {/* AI Chat panel */}
-        {showChat && (
-          <AiChat
-            theme={theme}
-            language={language}
-            getEditorCode={() => editorRef.current?.getValue()}
-          />
-        )}
+        <div className="benvo">
+          {showChat && (
+            <AiChat
+              theme={theme}
+              language={language}
+              getEditorCode={() => editorRef.current?.getValue()}
+            />
+          )}
+              <img src={showChat? "/open_mouth_sprite.png" : "/closed_mouth_sprite.png"} 
+              width= "200px" 
+              height="200px" 
+              >
+          </img>
+        </div>
+        
+        
       </div>
+      {/*Benvolio Talking*/}
+        
     </div>
   );
 }
