@@ -1,0 +1,12 @@
+body{
+    background-image:#28643b;
+}
+button{
+    background-color: #e94d32;
+    color: #ffeed1;
+    border-color: #e94d32;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 16px;
+    text-align: center;
+}
