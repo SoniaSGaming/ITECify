@@ -1,17 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import bgImg from "/benvoliobg.png";
 import logo from "/logo_itecify.png";
 
 function Home() {
   const [projectId, setProjectId] = useState("");
   const navigate = useNavigate();
-
-  const handleJoin = (e) => {
-    e.preventDefault();
-    if (!projectId) return alert("Please enter a project ID!");
-    navigate(`/join-project?id=${projectId}`);
-  };
 
   return (
     <div
@@ -37,21 +31,26 @@ function Home() {
         />
         !
       </h1>
-
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <section style={{ marginBottom: "32px" }}>
         <h2>Join a project</h2>
         <form
-          onSubmit={handleJoin}
           style={{ display: "flex", justifyContent: "center", gap: "8px", flexWrap: "wrap" }}
-        >
-          <input
+        ><input
             type="text"
             placeholder="Enter Project ID..."
             value={projectId}
             onChange={(e) => setProjectId(e.target.value)}
             style={{ padding: "8px 12px", borderRadius: "4px", width: "100%", maxWidth: "300px" }}
           />
-          <input type="submit" value="Join" style={{ padding: "8px 16px", cursor: "pointer" }} />
+          <Link to={`/coding/false/${projectId}/cpp`}><input type="submit" value="Join" style={{ padding: "8px 16px", cursor: "pointer" }} /></Link>
         </form>
       </section>
 

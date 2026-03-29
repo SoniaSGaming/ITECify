@@ -8,11 +8,8 @@ function Menu() {
     <div style={styles.body}>
       <div style={styles.nav}>
         <Link to="/"><button>Home</button></Link>
-        <Link to="/create-project"><button>Create/Join Project</button></Link>
         <Link to="/whatis-itecify"><button>What is iTECify?</button></Link>
         <Link to="/about-benvolio"><button>About Benvolio</button></Link>
-        <Link to="/signup"><button>Sign Up</button></Link>
-        <Link to="/signin"><button>Sign In</button></Link>
       </div>
 
       <img

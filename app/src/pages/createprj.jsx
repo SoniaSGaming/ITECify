@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import "./mystyle.css";
 import bgImg from "/bamboo_bg.png"; // adjust path if needed
 import Select from "../components/Select";
+import { Link } from "react-router-dom";
 
 function CreateProject() {
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Project created (placeholder)");
   };
 
-  const [roomId, setRoomId] = useState('');
-  const [language, setLanguage] = useState('');
+  const [roomId, setRoomId] = useState("");
+  const [language, setLanguage] = useState("");
 
-  const languages=['php', 'javascript', 'cpp', 'html', 'css', 'python']
+  const languages = ["php", "javascript", "cpp", "html", "css", "python"];
 
   return (
     <div style={{ ...styles.body, backgroundImage: `url(${bgImg})` }}>
@@ -20,9 +20,18 @@ function CreateProject() {
 
       <p style={styles.paragraph}>
         Choose the programming language you wish to use for your project:
-        <Select items={languages} heading="Choose" onSelect={setLanguage}></Select>
+        <Select
+          items={languages}
+          heading="Choose"
+          onSelect={setLanguage}
+        ></Select>
         <br />
-        <input type="text" onChange={(value) => setRoomId(value)}/>
+        <input
+          type="text"
+          value={roomId}
+          onChange={(e) => setRoomId(e.target.value)}
+          placeholder="Enter Room ID (e.g. alpha-123)"
+        />
         <br />
         After you create your project you will see the project ID on the
         interface, share the ID with your collaborators to start coding
@@ -33,7 +42,9 @@ function CreateProject() {
       </p>
 
       <form onSubmit={handleSubmit} style={styles.form}>
-        <input type="submit" value="Create" />
+        <Link to={`/coding/true/${roomId}/${language}`}>
+          <input type="submit" value="Create" />
+        </Link>
       </form>
     </div>
   );
