@@ -1,0 +1,86 @@
+.body {
+     background-color: #402013;
+}
+h1 {
+    color:#e94d32;
+    -webkit-text-stroke: 1.5px #402013;
+    text-align: center;
+    font-size: 67px;
+    text-shadow: 1px 1px #402013;
+}
+p{
+    font-family: 'Changa One', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    border-color: #cc8c47;
+    border-style: solid;
+    border-width: 6.7px;
+    background-color: #ffeed1;
+    border-radius: 20px;
+    text-align: left;
+    margin-left: 250px;
+    margin-right: 200px;
+    text-indent: 100px;
+    color:#402013;
+    padding: 20px;
+    font-size:25px;
+}
+.align-orizontal{
+  margin: 0;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+button{
+    background-color: #e94d32;
+    color: #ffeed1;
+    border-color: #e94d32;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 16px;
+    text-align: center;
+}
+label{
+    color:#ffeed1;
+    font-size: 30px;
+    text-align: center;
+    -webkit-text-stroke: 1px #e94d32;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    font-weight: bold;
+}
+h2{
+    color:#ffeed1;
+    font-size: 40px;
+    text-align: center;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    -webkit-text-stroke: 1.2px #e94d32;
+}
+form{
+    color:#402013;
+    font-size: 25px;
+    text-align: center;
+}
+input{
+    background-color:#ffeed1;
+    color: #e94d32;
+    border-radius: 4px;
+    border: 2px solid #402013;
+    cursor: pointer;
+    padding: 16px;
+    text-align: center;
+    font-size: 16px;
+}
+span{
+    color:#e94d32;
+   font-weight:bold;
+}
+font{
+    font-family: 'Changa One', serif;
+    font-weight: 400;
+    font-style: normal;
+}
+

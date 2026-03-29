@@ -1,30 +1,29 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/piston': {
-        target: 'http://localhost:2000',
+      "/piston": {
+        target: "http://localhost:2000",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/piston/, ''),
+        rewrite: (path) => path.replace(/^\/piston/, ""),
       },
-      '/groq': {
-        target: 'http://localhost:8000',
-        rewrite: path => path.replace(/^\/groq/, ''),
-      },
-      '/terminal': {
-        target: 'ws://localhost:8000',
+      // Matches /groq, /api, /room, /terminal, and /yjs in one block
+      "^/(groq|api|room|terminal|yjs)": {
+        target: "http://localhost:8000",
+        changeOrigin: true,
         ws: true,
+        rewrite: (path) => path.replace(/^\/(groq|api)/, ""), // Only rewrite prefixes that need it
       },
-      '/api': {
+      '/container': {
         target: 'http://localhost:8000',
-        rewrite: path => path.replace(/^\/api/, ''),
+        changeOrigin: true,
+        // Do NOT use rewrite if your FastAPI route is @app.post("/container/...")
       },
     },
-    host: '0.0.0.0',
-    port: 5173, // optional, this is the default
-  }
-  
-})
+    host: "0.0.0.0",
+    port: 5173,
+  },
+});
